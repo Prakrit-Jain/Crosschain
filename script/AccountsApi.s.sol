@@ -10,9 +10,9 @@ import "@hyperlane/solidity/contracts/libs/Call.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol";
 
 /// @notice This Script is used to send inter-chain call using Hyperlane Accounts Api from sepolia to Fuji chain,
-/// Here 2 calls are done simultaneously. First one to counter contract deployed on fuji chain to increase the 
+/// Here 2 calls are done simultaneously. First one to counter contract deployed on fuji chain to increase the
 /// value of its variable and Second To call the permit funciton to set Allowance for the spender account on
-/// receiving side.It Automatically pays the Interchain Gas Paymaster to relay the message to 
+/// receiving side.It Automatically pays the Interchain Gas Paymaster to relay the message to
 /// destination chain.
 contract CounterScript is Script {
     address deployer;

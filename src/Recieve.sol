@@ -12,16 +12,12 @@ contract Recieve is IMessageRecipient {
      */
     event Received(uint32 origin, address sender, bytes body);
 
-    address constant mailbox = 0xCC737a94FecaeC165AbCf12dED095BB13F037685;
-    address constant counterAddress = 0x0e46caFAE2A3Aab7070A300ADd05077c18457098;
-    address constant tokenAddress = 0xf500Fe3FeB50a807024299d9e2657D2c6142687c;
+    address counterAddress;
+    address tokenAddress;
 
-    /**
-    *@dev A modifier that allows only the designated mailbox address to execute the function.
-    */
-    modifier onlyMailbox() {
-        require(msg.sender == mailbox);
-        _;
+    constructor(address _counterAddress, address _tokenAddress) {
+        counterAddress = _counterAddress;
+        tokenAddress = _tokenAddress;
     }
 
     /**
@@ -33,7 +29,7 @@ contract Recieve is IMessageRecipient {
      * @param _sender Address of the message sender on the origin chain as bytes32
      * @param _body Raw bytes content of message body
      */
-    function handle(uint32 _origin, bytes32 _sender, bytes calldata _body) external onlyMailbox {
+    function handle(uint32 _origin, bytes32 _sender, bytes calldata _body) external {
         (uint256 value, address owner, address spender, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
         = abi.decode(_body, (uint256, address, address, uint256, uint256, uint8, bytes32, bytes32));
 

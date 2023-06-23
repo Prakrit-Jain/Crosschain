@@ -10,7 +10,7 @@ import "@hyperlane/solidity/contracts/libs/TypeCasts.sol";
 
 /// @notice This Script is used to send inter-chain Message using Hyperlane Messaging Api from sepolia to Fuji chain,
 /// the Message contains the parameters to call the counter contract to increment the value and also calls the
-/// Permit function on receiving side.It Automatically pays the Interchain Gas Paymaster to relay the message to 
+/// Permit function on receiving side.It Automatically pays the Interchain Gas Paymaster to relay the message to
 /// destination chain.
 contract CounterScript is Script {
     address deployer;
