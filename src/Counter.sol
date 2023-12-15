@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity =0.8.18;
 
 contract Counter {
-    uint256 public number;
+    uint256 public count;
 
-    function setNumber(uint256 newNumber) public {
-        number = newNumber;
-    }
-
-    function increment() public {
-        number++;
+    /**
+     * @notice This function increments the value of storage variable by value `value`
+     * @param value The `value` to increase the variable by.
+     */
+    function increment(uint256 value) external {
+        count += value;
     }
 }
